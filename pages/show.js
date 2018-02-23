@@ -1,3 +1,5 @@
+// simple React page!
+
 import React from 'react';
 
 export default () => {
