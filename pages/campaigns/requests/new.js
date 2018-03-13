@@ -34,7 +34,7 @@ class RequestNew extends Component {
         .createRequest(description, web3.utils.toWei(value, 'ether'), recipient)
         .send({ from: accounts[0] });
 
-      Router.pushRoute(`/campaigns/${this.props.address}/requests`)
+      Router.pushRoute(`/campaigns/${this.props.address}/requests`);
     } catch (err) {
       this.setState({ errorMessage: err.message });
     }
@@ -46,9 +46,7 @@ class RequestNew extends Component {
     return (
       <Layout>
         <Link route={`/campaigns/${this.props.address}/requests`}>
-          <a>
-            Back
-          </a>
+          <a>Back</a>
         </Link>
         <h3>Create a Request</h3>
         <Form onSubmit={this.onSubmit} error={!!this.state.errorMessage}>
@@ -57,8 +55,7 @@ class RequestNew extends Component {
             <Input
               value={this.state.description}
               onChange={event =>
-                this.setState({ description: event.target.value })
-              }
+                this.setState({ description: event.target.value })}
             />
           </Form.Field>
 
@@ -71,17 +68,18 @@ class RequestNew extends Component {
           </Form.Field>
 
           <Form.Field>
-            <label>Receipient</label>
+            <label>Recipient</label>
             <Input
-              value={this.state.receipient}
+              value={this.state.recipient}
               onChange={event =>
-                this.setState({ recipient: event.target.value })
-              }
+                this.setState({ recipient: event.target.value })}
             />
           </Form.Field>
 
           <Message error header="Oops!" content={this.state.errorMessage} />
-          <Button primary loading={this.state.loading}>Create!</Button>
+          <Button primary loading={this.state.loading}>
+            Create!
+          </Button>
         </Form>
       </Layout>
     );
